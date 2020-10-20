@@ -158,5 +158,8 @@ for system in systemdata:
 		for entry in system['facts']:
 			print "    Namespace - %s" % entry['namespace']
 			for fact, value in entry['facts'].iteritems():
-				print "      %s,%s" % (fact,value) 
+                                if isinstance(value, list):
+                                        print "    %s, %s" % (fact,",".join(value))
+                                else:
+                                        print "      %s,%s" % (fact,value)
 
